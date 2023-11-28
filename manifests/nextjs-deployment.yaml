@@ -1,0 +1,37 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextjs-sample-app-linux-deployment
+  namespace: nextjs-sample-app
+  labels:
+    app: nextjs-sample-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nextjs-sample-app
+  template:
+    metadata:
+      labels:
+        app: nextjs-sample-app
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+                - arm64
+      containers:
+      - name: nextjs
+        image: sunny0183/nextjs-docker
+        ports:
+        - name: http
+          containerPort: 3000
+        imagePullPolicy: IfNotPresent
+      nodeSelector:
+        kubernetes.io/os: linux

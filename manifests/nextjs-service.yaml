@@ -1,0 +1,15 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nextjs-sample-app-linux-service
+  namespace: nextjs-sample-app
+  labels:
+    app: nextjs-sample-app
+spec:
+  selector:
+    app: nextjs-sample-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
