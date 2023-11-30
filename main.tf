@@ -261,4 +261,6 @@ module "load_balancer_controller" {
   cluster_identity_oidc_issuer     = data.aws_eks_cluster.example.identity[0].oidc[0].issuer
   cluster_identity_oidc_issuer_arn = aws_iam_openid_connect_provider.cluster.arn
   cluster_name                     = aws_eks_cluster.eks-cluster.name
+  
+  depends_on = [ null_resource.kubectl ]
 }
