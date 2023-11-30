@@ -28,14 +28,14 @@ terraform apply ## Deploy the resources
 
 After Part-1 is complete, deploy Part-2...
 ```
-cd cloudfront
+cd k8s
 terraform init
 terraform plan
 terraform apply
 ```
 After Part-2 is complete, deploy Part-3 in the same manner...
 ```
-cd cloudfront
+cd ../cloudfront
 terraform init
 terraform plan
 terraform apply
