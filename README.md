@@ -13,6 +13,12 @@ This demo project is deployed in 3 parts to simplify Terraform (TF) dependency m
 
 This was developed and tested with Terraform `v1.5.7`, AWScli `v2.13.18`. It is strongly recommended to deploy this is a sandbox or non-production account.
 
+Ensure `KUBE_CONFIG_PATH` is set
+
+```
+export KUBE_CONFIG_PATH=~/.kube/config
+```
+
 # Usage
 
 Set the desired AWS region in each of the `variables.tf` files.
